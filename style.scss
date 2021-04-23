@@ -1,0 +1,95 @@
+$fontFamily: 'Noto Sans JP', sans-serif;
+$fontWeight: bold;
+$colorText: #333;
+
+@mixin font ($color: $colorText, $fontSize: 32px) {
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
+    color: $color;
+    font-size: $fontSize;
+}
+
+@mixin size ($height: 300px, $width: 500px) {
+    height: $height;
+    width: $width;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    .mainDiv {
+        @include size(500px, 700px);
+        margin-top: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+        border-radius: 10px;
+
+        h1 {
+            @include font();
+            padding-top: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #panel {
+            @include size($height: 70px, $width: 100%);
+            border: 1px solid black;
+            margin-left: -1px;
+
+            #taskName {
+                @include font($fontSize: 16px);
+                height: 34px;
+                width: 300px;
+                margin-top: 20px;
+                margin-left: 20px;
+                padding-left: 10px;
+                
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            #addBtn {
+                @include size($width: 200px, $height: 34.5px);
+                margin-left: 26px;
+            }
+        }
+
+        #tasks {
+            @include size(150px, 100%);
+            margin-left: -1px;
+            border: 1px solid black;
+
+            .task-item {
+                .task-text {
+                    @include font($fontSize: 19px);
+                    padding-left: 10px;
+                    padding-top: 10px;
+                }
+
+                .items {
+
+
+                    .button-item {
+
+                    }
+                }
+            }
+
+            button {
+                width: 200px;
+            }
+
+            .items {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+            }
+        }
+    }
+}
