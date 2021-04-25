@@ -14,26 +14,18 @@
 </head>
 
 <body>
-    <main>
+    <div id="Main">
         <div class="mainDiv">
             <h1>To-Do App</h1>
             <div id="panel">
                 <input type="text" id="taskName" class="myInput" placeholder="Enter your task" />
-                <button id="addBtn">Add task</button>
+                <button id="addBtn" class="btn btn-warning">Add task</button>
             </div>
             <div id="tasks">
-                <div class="task-item">
-                    <p class="task-text">Some text goes here</p>
-                    <div class="items">
-                        <button class="btn btn-success">Completed</button>
-                        <button class="btn btn-danger">Failed</button>
-                    </div>
-                </div>
-                <div id="result">
-                </div>
+                <ul id="result"></ul>
             </div>
         </div>
-    </main>
+    </div>
     <script src="script.js"></script>
 </body>
 

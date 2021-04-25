@@ -19,7 +19,17 @@ $colorText: #333;
     padding: 0;
 }
 
-main {
+html, body {
+    background-color: rgb(219, 147, 80);
+}
+
+#Main {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: rgb(219, 147, 80);
+
     .mainDiv {
         @include size(500px, 700px);
         margin-top: 150px;
@@ -27,6 +37,7 @@ main {
         margin-right: auto;
         border: 1px solid black;
         border-radius: 10px;
+        background-color: blanchedalmond;
 
         h1 {
             @include font();
@@ -43,11 +54,14 @@ main {
             #taskName {
                 @include font($fontSize: 16px);
                 height: 34px;
-                width: 300px;
+                width: 400px;
                 margin-top: 20px;
                 margin-left: 20px;
                 padding-left: 10px;
-                
+                border-radius: 3px;
+                transition: all .2s linear;
+                border: 1px solid black;
+                box-shadow: 2px 2px 6px 0px grey;
 
                 &:focus {
                     outline: none;
@@ -55,34 +69,68 @@ main {
             }
 
             #addBtn {
-                @include size($width: 200px, $height: 34.5px);
-                margin-left: 26px;
+                @include size($width: 230px, $height: 34.5px);
+                margin-top: -5px;
+                margin-left: 20px;
+                margin-right: 20px;
+                box-shadow: 2px 2px 6px 0px grey;
+
+                &:hover {
+                    border: 1px solid black;
+                }
             }
         }
 
         #tasks {
             @include size(150px, 100%);
             margin-left: -1px;
-            border: 1px solid black;
+
+            #result {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: space-between;
+
+                & > li {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-left: -10px;
+                    margin-right: 20px;
+
+                    & > .divBtns {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        & > .deleted {
+                            margin-left: 10px;
+                        }
+                    } 
+                }
+            }
 
             .task-item {
+                width: 97%;
+                display: flex;
+                margin-top: 5px;
+                margin-left: auto;
+                margin-right: auto;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid rgb(219, 147, 80);
+
+                .item {
+                    .btn-danger {
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                }
+
                 .task-text {
                     @include font($fontSize: 19px);
                     padding-left: 10px;
                     padding-top: 10px;
                 }
-
-                .items {
-
-
-                    .button-item {
-
-                    }
-                }
-            }
-
-            button {
-                width: 200px;
             }
 
             .items {

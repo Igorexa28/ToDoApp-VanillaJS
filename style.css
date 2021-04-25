@@ -3,7 +3,27 @@
   padding: 0;
 }
 
-main .mainDiv {
+html, body {
+  background-color: #db9350;
+}
+
+#Main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #db9350;
+}
+#Main .mainDiv {
   height: 500px;
   width: 700px;
   margin-top: 150px;
@@ -11,8 +31,9 @@ main .mainDiv {
   margin-right: auto;
   border: 1px solid black;
   border-radius: 10px;
+  background-color: blanchedalmond;
 }
-main .mainDiv h1 {
+#Main .mainDiv h1 {
   font-weight: bold;
   font-family: "Noto Sans JP", sans-serif;
   color: #333;
@@ -21,38 +42,110 @@ main .mainDiv h1 {
   text-align: center;
   margin-bottom: 10px;
 }
-main .mainDiv #panel {
+#Main .mainDiv #panel {
   height: 70px;
   width: 100%;
   border: 1px solid black;
   margin-left: -1px;
 }
-main .mainDiv #panel #taskName {
+#Main .mainDiv #panel #taskName {
   font-weight: bold;
   font-family: "Noto Sans JP", sans-serif;
   color: #333;
   font-size: 16px;
   height: 34px;
-  width: 300px;
+  width: 400px;
   margin-top: 20px;
   margin-left: 20px;
   padding-left: 10px;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  border: 1px solid black;
+  -webkit-box-shadow: 2px 2px 6px 0px grey;
+          box-shadow: 2px 2px 6px 0px grey;
 }
-main .mainDiv #panel #taskName:focus {
+#Main .mainDiv #panel #taskName:focus {
   outline: none;
 }
-main .mainDiv #panel #addBtn {
+#Main .mainDiv #panel #addBtn {
   height: 34.5px;
-  width: 200px;
-  margin-left: 26px;
+  width: 230px;
+  margin-top: -5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  -webkit-box-shadow: 2px 2px 6px 0px grey;
+          box-shadow: 2px 2px 6px 0px grey;
 }
-main .mainDiv #tasks {
+#Main .mainDiv #panel #addBtn:hover {
+  border: 1px solid black;
+}
+#Main .mainDiv #tasks {
   height: 150px;
   width: 100%;
   margin-left: -1px;
-  border: 1px solid black;
 }
-main .mainDiv #tasks .task-item .task-text {
+#Main .mainDiv #tasks #result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#Main .mainDiv #tasks #result > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: -10px;
+  margin-right: 20px;
+}
+#Main .mainDiv #tasks #result > li > .divBtns {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#Main .mainDiv #tasks #result > li > .divBtns > .deleted {
+  margin-left: 10px;
+}
+#Main .mainDiv #tasks .task-item {
+  width: 97%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #db9350;
+}
+#Main .mainDiv #tasks .task-item .item .btn-danger {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#Main .mainDiv #tasks .task-item .task-text {
   font-weight: bold;
   font-family: "Noto Sans JP", sans-serif;
   color: #333;
@@ -60,10 +153,7 @@ main .mainDiv #tasks .task-item .task-text {
   padding-left: 10px;
   padding-top: 10px;
 }
-main .mainDiv #tasks button {
-  width: 200px;
-}
-main .mainDiv #tasks .items {
+#Main .mainDiv #tasks .items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

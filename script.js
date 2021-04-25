@@ -1,104 +1,70 @@
-const taskNameArea = document.querySelector('#taskName');
-const tasksArea = document.querySelector('#tasks');
-const addTaskBtn = document.querySelector('#addBtn');
+const taskName = document.querySelector('#taskName');
+const addButton = document.querySelector('#addBtn');
+const result = document.querySelector('#result');
+let tasksToDo = [];
 
-addBtn.addEventListener('click', function() {
-    let description = taskNameArea.value;
+addButton.addEventListener('click', function(event) {
+    tasksToDo.length = 0;
+    let task = taskName.value;
 
-    let para = createParagraph(description).textContent;
+    tasksToDo.push(task);
 
-    let result = createContainer(para);
+    let btnSuccess = createBtnSuccess(), btnFailed = createBtnFailed();
 
-    alert(para);
-});
-
-function createContainer(paragraph) {
     let div = document.createElement('div');
-    div.className = 'task-item';
-    div.insertAdjacentHTML('beforeEnd', paragraph);
+    div.className = 'divBtns';
+    div.append(btnSuccess);
+    div.append(btnFailed);
 
-    let btns = createContainerForBtn();
-    div.insertAdjacentElement('beforeEnd', '${btns}');
-
-    return div;
-}
-
-function createContainerForBtn() {
-    let div = document.createElement('div');
-    div.className = 'items';
-
-    let successBtn = createBtn('btn btn-success');
-    let failedBtn = createBtn('btn btn-danger');
-
-    div.insertAdjacentElement('beforeEnd', '${successBtn} ${failedBtn}');
-
-    return div;
-}
-
-function createBtn(classBtn) {
-    let button = document.createElement('button');
-
-    if (classBtn === '') {
-        button.className = 'btn btn-success';
-        button.textContent = 'Completed';
-    } else if (classBtn === 'btn btn-danger') {
-        button.className = 'btn btn-danger';
-        button.textContent = 'Failed';
-    } else {
-        button.className = 'btn btn-secondary';
-        button.textContent = 'Not known';
+    for (let index = 0; index < tasksToDo.length; index++) {
+        let li = document.createElement('li');
+        li.innerHTML = `<div>${tasksToDo[index]}</div>`;
+        li.append(div);
+        result.append(li);
     }
 
-    return button;
-}
+    taskName.value = '';
 
-function createParagraph(taskDescription) {
+    btnSuccess.addEventListener('click', function(event) {
+        alert(this.parentElement.parentElement.tagName);
+        this.parentElement.parentElement.remove();
+    });
+});
+
+function createParagraph(content) {
     let paragraph = document.createElement('p');
-    paragraph.textContent = taskDescription;
+    paragraph.textContent = content;
     paragraph.className = 'task-text';
 
     return paragraph;
 }
 
-// function wrapButtons() {
-//     let div = document.createElement('div');
-//     div.className = 'flex-container';
+function createDiv(classNamE) {
+    let div = document.createElement('div');
+    div.className = classNamE;
 
-//     let successBtn = createBtn('btn btn-success');
-//     let failedBtn = createBtn('btn btn-danger');
+    return div;
+}
 
-//     div.innerHTML = `${successBtn} ${failedBtn}`;
-// }
+function createBtnSuccess() {
+    let btnSuccess = document.createElement('button');
+    btnSuccess.className = 'btn btn-success completed';
+    btnSuccess.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </svg>`;
 
-// function createResDiv(task, divContainer) {
-//     let div = document.createElement('div');
-//     div.className = '';
-//     div.innerText = task;
+    return btnSuccess;
+}
 
-//     div.insertAdjacentHTML('beforeend', '<button type="submit" class="btn btn-success">Completed</button>');
+function createBtnFailed() {
+    let btnFailed = document.createElement('button');
+    btnFailed.className = 'btn btn-danger deleted';
+    btnFailed.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+    `;
 
-//     tasksArea.append(div);
-// }
-
-// function createSuccessBtn() {
-//     let button = document.createElement('button');
-//     button.className = 'btn btn-outline-success';
-//     button.innerText = 'Completed';
-// }
-
-// function createFailedBtn() {
-//     let button = document.createElement('button');
-//     button.className = 'btn btn-outline-success';
-//     button.innerText = 'Completed';
-// }
-
-// function createBtn(className) {
-//     let button = document.createElement('button');
-//     button.className = className;
-
-//     if (className === 'btn btn-success') {
-//         button.innerText = 'Completed';
-//     } else {
-//         button.innerText = 'Failed';
-//     }
-// }
+    return btnFailed;
+}
