@@ -1,7 +1,7 @@
 const taskName = document.querySelector('#taskName');
 const addButton = document.querySelector('#addBtn');
 const result = document.querySelector('#result');
-let tasksToDo = [];
+let tasksToDo = [], completed = [], failed = [];
 
 addButton.addEventListener('click', function(event) {
     tasksToDo.length = 0;
@@ -27,6 +27,15 @@ addButton.addEventListener('click', function(event) {
 
     btnSuccess.addEventListener('click', function(event) {
         alert(this.parentElement.parentElement.tagName);
+        this.parentElement.parentElement.remove();
+    });
+
+    btnFailed.addEventListener('click', function(event) {
+        alert(this.parentElement.parentElement.tagName);
+        let task = this.parentElement.previousElementSibling.textContent;
+        alert(task);
+        completed.push(task);
+        alert(completed);
         this.parentElement.parentElement.remove();
     });
 });
