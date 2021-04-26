@@ -114,6 +114,9 @@ html, body {
   border: 1px solid black;
   margin-top: 5px;
 }
+#Main .mainDiv #tasks #result > li > .nameTask {
+  color: purple;
+}
 #Main .mainDiv #tasks #result > li > .divBtns {
   margin-top: 10px;
   margin-bottom: 10px;

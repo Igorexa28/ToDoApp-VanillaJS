@@ -18,7 +18,7 @@ addButton.addEventListener('click', function(event) {
 
     for (let index = 0; index < tasksToDo.length; index++) {
         let li = document.createElement('li');
-        li.innerHTML = `<div>${tasksToDo[index]}</div>`;
+        li.innerHTML = `<div class="nameTask">${tasksToDo[index]}</div>`;
         li.append(div);
         result.append(li);
     }
@@ -26,17 +26,31 @@ addButton.addEventListener('click', function(event) {
     taskName.value = '';
 
     btnSuccess.addEventListener('click', function(event) {
-        alert(this.parentElement.parentElement.tagName);
-        this.parentElement.parentElement.remove();
+        let completedTask = document.querySelector('.nameTask').innerHTML;
+        console.log(completedTask);
+        completed.length = 0;
+        completed.push(completedTask);
+
+        document.getElementsByTagName('LI')[0].remove();
+
+        for (let index = 0; index < completed.length; index++) {
+            let li = document.createElement('li');
+            li.innerHTML = `<div>${completed[index]}</div>`;
+            document.querySelector('#completed').append(li);
+        }
     });
 
     btnFailed.addEventListener('click', function(event) {
-        alert(this.parentElement.parentElement.tagName);
-        let task = this.parentElement.previousElementSibling.textContent;
-        alert(task);
-        completed.push(task);
-        alert(completed);
-        this.parentElement.parentElement.remove();
+        let failedTask = document.querySelector('.nameTask').innerHTML;
+        failed.length = 0;
+        failed.push(failedTask);
+        document.getElementsByTagName('LI')[0].remove();
+
+        for (let index = 0; index < failed.length; index++) {
+            let li = document.createElement('li');
+            li.innerHTML = `<div>${failed[index]}</div>`;
+            document.querySelector('#failed').append(li);
+        }
     });
 });
 

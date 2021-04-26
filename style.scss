@@ -99,6 +99,10 @@ html, body {
                     border: 1px solid black;
                     margin-top: 5px;
 
+                    & > .nameTask {
+                        color: purple;
+                    }
+
                     & > .divBtns {
                         margin-top: 10px;
                         margin-bottom: 10px;
