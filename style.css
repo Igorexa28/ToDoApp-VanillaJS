@@ -7,6 +7,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
@@ -14,24 +17,21 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  font-family: "Noto Sans JP", sans-serif;
   height: 1000px;
   width: 100%;
-  font-family: "Noto Sans JP", sans-serif;
-  background-color: #f79bbb;
+  background: linear-gradient(45deg, #d299c2, #fef9d7);
 }
 #outerDiv #innerDiv {
-  height: auto;
-  width: 540px;
-  background-color: #10101d;
   color: white;
   border-radius: 8px;
+  height: auto;
+  width: 640px;
+  background-color: #10101d;
 }
 #outerDiv #innerDiv h1 {
-  margin-left: 27px;
   margin-top: 10px;
+  margin-left: 27px;
 }
 #outerDiv #innerDiv #taskId {
   margin-left: 27px;
@@ -39,16 +39,16 @@
   width: 79%;
 }
 #outerDiv #innerDiv input {
-  margin-left: 10px;
-  background-color: transparent;
   border: none;
-  color: #fff;
+  font-size: 23px;
+  color: #FFFFFF;
+  margin-left: 10px;
   padding-left: 6px;
-  border-bottom: 1px solid #fff;
   margin-bottom: 10px;
   height: 39px;
   width: 83%;
-  font-size: 23px;
+  background-color: transparent;
+  border-bottom: 1px solid #FFFFFF;
 }
 #outerDiv #innerDiv input:focus {
   outline: none;
@@ -70,55 +70,76 @@
           box-shadow: 0 0 10px #f79bbb, 0 0 15px #f79bbb;
 }
 #outerDiv #innerDiv #tasks {
+  padding-top: 10px;
+  padding-bottom: 10px;
   height: auto;
   width: 100%;
   background-color: #10101d;
-  border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  border-bottom-right-radius: 6px;
 }
 #outerDiv #innerDiv #tasks .divTask {
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 8px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0px auto 10px auto;
   background-color: #191933;
-  margin-bottom: 10px;
-  width: 90%;
-  border-radius: 8px;
-  margin-left: auto;
-  margin-right: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #outerDiv #innerDiv #tasks .divTask .para {
   margin-top: 10px;
   margin-left: 34px;
 }
 #outerDiv #innerDiv #tasks .divTask .Radio {
-  height: 15px;
-  width: 15px;
-  position: absolute;
   margin-top: 16px;
   border-radius: 50%;
+  position: absolute;
+  height: 15px;
+  width: 15px;
 }
 #outerDiv #innerDiv #tasks .divTask .text {
-  text-decoration: line-through;
   color: grey;
+  text-decoration: line-through;
 }
 #outerDiv #innerDiv #tasks .divTask .deleteBtn {
-  margin-right: 14px;
-  border: none;
-  height: auto;
   width: auto;
-  color: red;
+  height: auto;
+  border: none;
+  margin-right: 14px;
+  color: #fd0707;
   background-color: #191933;
+}
+@media all and (max-width: 655px) {
+  #outerDiv #innerDiv {
+    width: 100%;
+  }
+}
+@media all and (max-width: 555px) {
+  #outerDiv #innerDiv #addTask {
+    margin-left: 3%;
+  }
+}
+@media all and (max-width: 395px) {
+  #outerDiv #innerDiv #addTask {
+    margin-left: 0px;
+  }
+}
+@media all and (max-width: 348px) {
+  #outerDiv #innerDiv #addTask {
+    width: 89%;
+    padding: 7px 0px;
+    margin-left: 17px;
+    border-radius: 8px;
+  }
 }/*# sourceMappingURL=style.css.map */

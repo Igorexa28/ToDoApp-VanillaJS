@@ -21,23 +21,23 @@ $colorText: #333;
 
 #outerDiv {
     display: flex;
+    align-items: center;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: center;
-    @include size(1000px, 100%);
     font-family: $fontFamily;
-    background-color: rgb(247, 155, 187);
+    @include size(1000px, 100%);
+    background: linear-gradient(45deg, #d299c2, #fef9d7);
 
     #innerDiv {
-        @include size( auto, 540px);
-        background-color: #10101d;
         color: white;
         border-radius: 8px;
+        @include size( auto, 640px);
+        background-color: #10101d;
 
 
         h1 {
-            margin-left: 27px;
             margin-top: 10px;
+            margin-left: 27px;
         }
 
         #taskId {
@@ -46,15 +46,15 @@ $colorText: #333;
         }
 
         input {
-            margin-left: 10px;
-            background-color: transparent;
             border: none;
-            color: #fff;
+            font-size: 23px;
+            color: #FFFFFF;
+            margin-left: 10px;
             padding-left: 6px;
-            border-bottom: 1px solid #fff;
             margin-bottom: 10px;
             @include size(39px, 83%);
-            font-size: 23px;
+            background-color: transparent;
+            border-bottom: 1px solid #FFFFFF;
 
             &:focus {
                 outline: none;
@@ -78,24 +78,22 @@ $colorText: #333;
         }
 
         #tasks {
-            @include size(auto, 100%);
-            background-color: #10101d;
-            border-bottom-right-radius: 6px;
-            border-bottom-left-radius: 6px;
             padding-top: 10px;
             padding-bottom: 10px;
+            @include size(auto, 100%);
+            background-color: #10101d;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
 
             .divTask {
-                display: flex;
-                flex-flow: row wrap;
-                justify-content: space-between;
-                align-items: center;
-                background-color: #191933;
-                margin-bottom: 10px;
                 width: 90%;
+                display: flex;
                 border-radius: 8px;
-                margin-left: auto;
-                margin-right: auto;
+                flex-flow: row wrap;
+                align-items: center;
+                margin: 0px auto 10px auto;
+                background-color: #191933;
+                justify-content: space-between;
 
                 .para {
                     margin-top: 10px;
@@ -103,25 +101,62 @@ $colorText: #333;
                 }
 
                 .Radio {
-                    @include size(15px, 15px);
-                    position: absolute;
                     margin-top: 16px;
                     border-radius: 50%;
+                    position: absolute;
+                    @include size(15px, 15px);
                 }
 
                 .text {
-                    text-decoration: line-through;
                     color: grey;
+                    text-decoration: line-through;
                 }
 
                 .deleteBtn {
-                    margin-right: 14px;
-                    border: none;
-                    height: auto;
+                    
                     width: auto;
-                    color: red;
+                    height: auto;
+                    border: none;
+                    margin-right: 14px;
+                    color: rgb(253, 7, 7);
                     background-color: #191933;
                 }
+            }
+        }
+    }
+
+    @media all and (max-width: 655px) {
+        #innerDiv {
+            width: 100%;
+        }
+    }
+
+    @media all and (max-width: 555px) {
+        #innerDiv {
+
+            #addTask {
+                margin-left: 3%;
+            }
+        }
+    }
+
+    @media all and (max-width: 395px) {
+        #innerDiv {
+
+            #addTask {
+                margin-left: 0px;
+            }
+        }
+    }
+
+    @media all and (max-width: 348px) {
+        #innerDiv {
+
+            #addTask {
+                width: 89%;
+                padding: 7px 0px;
+                margin-left: 17px;
+                border-radius: 8px;
             }
         }
     }
