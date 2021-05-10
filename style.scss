@@ -3,10 +3,10 @@ $fontWeight: bold;
 $colorText: #333;
 
 @mixin font ($color: $colorText, $fontSize: 32px) {
-    font-weight: $fontWeight;
-    font-family: $fontFamily;
     color: $color;
     font-size: $fontSize;
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
 }
 
 @mixin size ($height: 300px, $width: 500px) {
@@ -17,4 +17,112 @@ $colorText: #333;
 * {
     margin: 0;
     padding: 0;
+}
+
+#outerDiv {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    @include size(1000px, 100%);
+    font-family: $fontFamily;
+    background-color: rgb(247, 155, 187);
+
+    #innerDiv {
+        @include size( auto, 540px);
+        background-color: #10101d;
+        color: white;
+        border-radius: 8px;
+
+
+        h1 {
+            margin-left: 27px;
+            margin-top: 10px;
+        }
+
+        #taskId {
+            margin-left: 27px;
+            @include size(39px, 79%);
+        }
+
+        input {
+            margin-left: 10px;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            padding-left: 6px;
+            border-bottom: 1px solid #fff;
+            margin-bottom: 10px;
+            @include size(39px, 83%);
+            font-size: 23px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        #addTask {
+            border: none;
+            color: #FFFFFF;
+            margin-left: 27px;
+            border-radius: 50%;
+            transition: all .17s linear;
+            background-color: transparent;
+            box-shadow: 0 0 5px rgb(247, 155, 187);
+
+            &:hover {
+                background-color: rgb(247, 155, 187);
+                box-shadow: 0 0 10px rgb(247, 155, 187),
+                            0 0 15px rgb(247, 155, 187)
+            }
+        }
+
+        #tasks {
+            @include size(auto, 100%);
+            background-color: #10101d;
+            border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .divTask {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #191933;
+                margin-bottom: 10px;
+                width: 90%;
+                border-radius: 8px;
+                margin-left: auto;
+                margin-right: auto;
+
+                .para {
+                    margin-top: 10px;
+                    margin-left: 34px;
+                }
+
+                .Radio {
+                    @include size(15px, 15px);
+                    position: absolute;
+                    margin-top: 16px;
+                    border-radius: 50%;
+                }
+
+                .text {
+                    text-decoration: line-through;
+                    color: grey;
+                }
+
+                .deleteBtn {
+                    margin-right: 14px;
+                    border: none;
+                    height: auto;
+                    width: auto;
+                    color: red;
+                    background-color: #191933;
+                }
+            }
+        }
+    }
 }
